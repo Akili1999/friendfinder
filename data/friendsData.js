@@ -1,9 +1,5 @@
+// This is an array with properties for 3 friends, which will be pushed into when a new user gives their information
 var friendsData = [
-    {
-        friendName: "Beth",
-        picture: "https://image.shutterstock.com/mosaic_250/2936380/613759379/stock-photo-happy-cheerful-young-woman-wearing-her-red-hair-in-bun-rejoicing-at-positive-news-or-birthday-gift-613759379.jpg",
-        numbers: [3, 2, 5, 2, 4, 2, 3, 1, 4, 2]
-    },
     {
         friendName: "Todd",
         picture: "https://media.discordapp.net/attachments/543268235257053204/587863142416121876/kappaimeantodd.png",
@@ -20,5 +16,5 @@ var friendsData = [
         number: [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
     }
 ];
-
+// We export this so that we can use it in another file
 module.exports = friendsData;
