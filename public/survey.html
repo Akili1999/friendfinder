@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Your mind is always buzzing with unexplored ideas and plans.</h5>
-                  <select class="form-control">
+                  <select class="form-control" id="question1">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-body">
                       <h5 class="card-title">Generally speaking, you rely more on your experience than your imagination.</h5>
-                      <select class="form-control">
+                      <select class="form-control" id="question2">
                              <option value="1">1</option>
                              <option value="2">2</option>
                              <option value="3">3</option>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="card-body">
                           <h5 class="card-title">You find it easy to stay relaxed and focused even when there is some pressure.</h5>
-                          <select class="form-control">
+                          <select class="form-control" id="question3">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="card-body">
                               <h5 class="card-title">You rarely do something just out of sheer curiosity.</h5>
-                              <select class="form-control">
+                              <select class="form-control" id="question4">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="card-body">
                                   <h5 class="card-title">People can rarely upset you.</h5>
-                                  <select class="form-control">
+                                  <select class="form-control" id="question5">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="card-body">
                                       <h5 class="card-title">It is often difficult for you to relate to other people’s feelings.</h5>
-                                      <select class="form-control">
+                                      <select class="form-control" id="question6">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -118,7 +118,7 @@
                                         </div>
                                         <div class="card-body">
                                           <h5 class="card-title">In a discussion, truth should be more important than people’s sensitivities.</h5>
-                                          <select class="form-control">
+                                          <select class="form-control" id="question7">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -133,7 +133,7 @@
                                             </div>
                                             <div class="card-body">
                                               <h5 class="card-title">You rarely get carried away by fantasies and ideas.</h5>
-                                              <select class="form-control">
+                                              <select class="form-control" id="question8">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -148,7 +148,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                   <h5 class="card-title">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
-                                                  <select class="form-control">
+                                                  <select class="form-control" id="question9">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -163,7 +163,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                       <h5 class="card-title">You feel more energetic after spending time with a group of people.</h5>
-                                                      <select class="form-control">
+                                                      <select class="form-control" id="question10">
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -195,7 +195,7 @@
                                                 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
@@ -227,5 +227,41 @@
 }
 </style>
 <script>
-    
+$("#sur-submit").on("click", function(event){
+    event.preventDefault(); //preventing the page from refreshing
+
+    var complete = true; // We are going to ensure that the survey is complete
+
+
+    if($("#name").val() === "" || $("#link").val() === ""){
+        complete = false; // If there isn't a name or link for a photo, then we aren't gonna send the info to the array or give a result
+    }
+
+    if(complete === true){ 
+        var user = {
+            name: $("#name").val().trim(),
+            link: $("#link").val().trim(),
+            number: [
+                    $("#question1").val(),
+					$("#question2").val(),
+					$("#question3").val(),
+					$("#question4").val(),
+					$("#question5").val(),
+					$("#question6").val(),
+					$("#question7").val(),
+					$("#question8").val(),
+					$("#question9").val(),
+					$("#question10").val()
+            ]
+        };
+        var url = window.location.origin;
+        $.post(url + "/api/friendsData", user, function(data){
+            $("#friend").text(data.name)
+            $("#friendPhoto").attr("src", data.link)
+            $("#modal").modal("toggle")
+        });
+    } else {
+        alert("Please Complete the Survey")
+    }
+})
 </script>
