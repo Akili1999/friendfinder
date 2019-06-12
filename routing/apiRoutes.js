@@ -7,10 +7,10 @@ module.exports = function(app){
     });
     // Our post, includes the functions for pushing the user into the friendsData array, but also we include the math for getting a result
     app.post("/api/friendsData", function(req, res){
-       console.log(req.body.scores);
+       console.log(req.body.number);
        var input = req.body; //input is what the user puts in
-       for( i = 0; i < input.scores.length; i++){
-           input.scores[i] = parseInt(input.scores[i]);
+       for( i = 0; i < input.number.length; i++){
+           input.number[i] = parseInt(input.number[i]);
        }
 
        var defaultFriend = 0; //the default friend is the first person in the array
@@ -19,8 +19,8 @@ module.exports = function(app){
        
        for(i = 0; i < friendsData.length; i++){
         var totDiff = 0; //this is the total difference between the input the user puts in, and a relating friend
-        for(j = 0; j < friends[i].scores.length; j++){
-            var diff = Math.abs(input.scores[j] - friendsData[i].scores[j]);
+        for(j = 0; j < friendsData[i].number.length; j++){
+            var diff = Math.abs(input.number[j] - friendsData[i].number[j]);
             totDiff += diff;
         }
         if(totDiff < minDiff) {
@@ -28,7 +28,7 @@ module.exports = function(app){
             minDiff = totDiff
         }
        }
-       friends.push(input)
+       friendsData.push(input)
        res.json(friendsData[defaultFriend])
 
     });

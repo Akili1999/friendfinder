@@ -3,7 +3,7 @@ var friendsData = [
     {
         friendName: "Todd",
         link: "https://media.discordapp.net/attachments/543268235257053204/587863142416121876/kappaimeantodd.png",
-        numbers: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+        number: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
     },
     {
         friendName: "Ikumi",
