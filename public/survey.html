@@ -238,10 +238,10 @@ $("#sur-submit").on("click", function(event){
     }
 
     if(complete === true){ 
-        var user = {
+        var user = { // we are retriving the values from all user input sources
             name: $("#name").val().trim(),
             link: $("#link").val().trim(),
-            number: [
+            number: [ 
                     $("#question1").val(),
 					$("#question2").val(),
 					$("#question3").val(),
@@ -254,13 +254,15 @@ $("#sur-submit").on("click", function(event){
 					$("#question10").val()
             ]
         };
+        // url functions
         var url = window.location.origin;
+        //Posting the data for the modal to the user
         $.post(url + "/api/friendsData", user, function(data){
             $("#friend").text(data.name)
             $("#friendPhoto").attr("src", data.link)
             $("#modal").modal("toggle")
         });
-    } else {
+    } else { //if the survey is incomplete then it will give an alert to the user
         alert("Please Complete the Survey")
     }
 })

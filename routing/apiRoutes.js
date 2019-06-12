@@ -19,11 +19,12 @@ module.exports = function(app){
        
        for(i = 0; i < friendsData.length; i++){
         var totDiff = 0; //this is the total difference between the input the user puts in, and a relating friend
+        //The loop below is to run through our friend array and do math upon the number the user gets from doing the survey, and comparing that to the other friends in the array
         for(j = 0; j < friendsData[i].number.length; j++){
             var diff = Math.abs(input.number[j] - friendsData[i].number[j]);
             totDiff += diff;
         }
-        if(totDiff < minDiff) {
+        if(totDiff < minDiff) { //this determines whether or not we get the default friend
             defaultFriend = i;
             minDiff = totDiff
         }
@@ -32,7 +33,7 @@ module.exports = function(app){
        res.json(friendsData[defaultFriend])
 
     });
-    // this allows us to clear the api if we want
+    // this allows us to clear the api if we want, making friendsData have the length of 0
     app.post("/api/clear", function(req, res){
         friendsData.length = 0;
         res.json({ok: true});
