@@ -8,12 +8,12 @@ var friendsData = [
     {
         friendName: "Ikumi",
         link: "https://cdn.discordapp.com/attachments/543283270335594516/587860045123813397/D8u8_1_W4AAvvDV.png",
-        number: [3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3]
+        number: [3, 4, 5, 1, 2, 3, 4, 5, 1, 2]
     },
     {
         friendName: "Keanu",
         link: "https://cdn.discordapp.com/attachments/538863158320955412/587864764336832527/3544944-stagebreakout_keanureevesstageonly_cyberpunk_06092019_site.png",
-        number: [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        number: [1, 3, 3, 3, 3, 3, 3, 3, 3, 3]
     }
 ];
 // We export this so that we can use it in another file
